@@ -3,16 +3,20 @@ using VContainer;
 using VContainer.Unity;
 using World;
 
-public class GlobalLifetimeScope : LifetimeScope
+namespace World
 {
-    protected override void Configure(IContainerBuilder builder)
+    public class GlobalLifetimeScope : LifetimeScope
     {
-        builder.Register<CharacterManager>(Lifetime.Singleton);
-    }
+        protected override void Configure(IContainerBuilder builder)
+        {
+            builder.Register<CharacterManager>(Lifetime.Singleton);
 
-    protected override void Awake()
-    {
-        base.Awake();
-        DontDestroyOnLoad(gameObject);
+        }
+
+        protected override void Awake()
+        {
+            base.Awake();
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }
