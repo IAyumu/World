@@ -4,11 +4,18 @@ using UnityEngine;
 
 namespace World
 {
-    public class Character
+    public class CharacterManager
     {
-        public string LastName = "";
+        private List<Character> _characters = new();
 
-        static public Character GenerateRandomCharacter()
+        public CharacterManager()
+        {
+        }
+        public  void AddCharacter(Character character)
+        {
+            _characters.Add(character);
+        }
+        public Character GenerateRandomCharacter()
         {
             string path = Path.Combine(Application.streamingAssetsPath, "MaleNameList.csv");
             LoadCSV(path);
@@ -16,7 +23,6 @@ namespace World
             {
                 LastName = maleNames[Random.Range(0, maleNames.Count)],
             };
-
             return character;
         }
         static public List<string> maleNames = new List<string>();

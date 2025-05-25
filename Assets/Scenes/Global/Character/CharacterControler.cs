@@ -9,8 +9,6 @@ namespace World
 
         void Start()
         {
-            character = Character.GenerateRandomCharacter();
-            TestName = character.LastName;
         }
 
         // Update is called once per frame
